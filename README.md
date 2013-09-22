@@ -1,4 +1,4 @@
-neat-pages
+grunt-neat-pages
 ==========
 
 Neatly create a scaffold for your next web project using this grunt-init template. Watch a [quick demo](http://quick.as/7ezi4eq).
@@ -44,7 +44,7 @@ cd _build
 npm install
 ```
 
-Optionally enable Growl notifications install [terminal-notifier](https://github.com/alextucker/grunt-growl#getting-started) with RubyGems:
+Optionally enable Growl notifications by installing [terminal-notifier](https://github.com/alextucker/grunt-growl#getting-started) with RubyGems:
 ```bash
 gem install terminal-notifier
 ```
