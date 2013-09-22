@@ -1,4 +1,4 @@
-grunt-neat-pages
+neat-pages
 ==========
 
 Neatly create a scaffold for your next web project using this grunt-init template. Watch a [quick demo](http://quick.as/7ezi4eq).
@@ -18,13 +18,13 @@ Once grunt-init is installed, place this template in your `~/.grunt-init/` direc
 ### Linux/Mac Users
 
 ```
-git clone git@github.com:jpdevries/grunt-neat-pages.git ~/.grunt-init/grunt-neat-pages
+git clone git@github.com:jpdevries/neat-pages.git ~/.grunt-init/neat-pages
 ```
 
 ### Windows Users
 
 ```
-git clone git@github.com:jpdevries/grunt-neat-pages.git %USERPROFILE%/.grunt-init/grunt-neat-pages
+git clone git@github.com:jpdevries/neat-pages.git %USERPROFILE%/.grunt-init/neat-pages
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ git clone git@github.com:jpdevries/grunt-neat-pages.git %USERPROFILE%/.grunt-ini
 At the command-line, cd into an empty directory, run this command and follow the prompts. 
 
 ```
-grunt-init grunt-neat-pages
+grunt-init neat-pages
 ```
 
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
