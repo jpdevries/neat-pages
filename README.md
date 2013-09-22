@@ -18,13 +18,13 @@ Once grunt-init is installed, place this template in your `~/.grunt-init/` direc
 ### Linux/Mac Users
 
 ```
-git clone git@github.com:jpdevries/neat-pages.git ~/.grunt-init/neat-pages
+git clone git@github.com:jpdevries/grunt-neat-pages.git ~/.grunt-init/neat-pages
 ```
 
 ### Windows Users
 
 ```
-git clone git@github.com:jpdevries/neat-pages.git %USERPROFILE%/.grunt-init/neat-pages
+git clone git@github.com:jpdevries/grunt-neat-pages.git %USERPROFILE%/.grunt-init/neat-pages
 ```
 
 ## Usage
