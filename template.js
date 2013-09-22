@@ -40,6 +40,11 @@ exports.template = function( grunt, init, done ) {
 			default: 'Sass'
 		},
 		{
+			name: 'assets_path',
+			message: 'Path relative to index.html that assets will be stored. Use "./" for root.',
+			default: 'assets/'
+		},
+		{
 			name: 'use_bourbon',
 			message: 'Bourbon: Would you like a glass of bourbon with this project? (y/N)',
 			default: 'yes'

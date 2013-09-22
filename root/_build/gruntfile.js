@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 			lib: './lib/',
 			{% if ('sass' === css_type) { %}scss: './scss/',{% } else if ('less' === css_type) { %}less: './less/',{% } %}
 			theme: '../',
-			assets: 'assets/',
+			assets: '{%= assets_path %}',
 			css: 'css/',
 			js:  'js/',
 			img: 'img/',
