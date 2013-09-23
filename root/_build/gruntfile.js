@@ -1,8 +1,5 @@
 module.exports = function(grunt) {
-	// Project configuration.	
-	
-	var doSFTP = grunt.file.isFile('sftp-secret.json'); // see https://github.com/modxcms/reynolds/blob/master/_build/templates/reynolds/README.md#grunt-sftp
-	
+	// Project configuration.		
 	var initConfig = {
 		pkg: grunt.file.readJSON('package.json'),
 		dirs: { /* just defining some properties */
@@ -156,8 +153,8 @@ module.exports = function(grunt) {
 			},
 			{% } else { %}
 			styles: {
-				files: ['<%= dirs.css %>**/*.css','!<%= dirs.css %>**/*.min.css'],
-				tasks: ['cssmin']
+				files: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.css','!<%= dirs.css %>**/*.min.css'],
+				tasks: ['cssmin','growl:css']
 			},
 			{% } %}
 			js: {
