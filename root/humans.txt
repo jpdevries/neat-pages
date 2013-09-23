@@ -1,0 +1,7 @@
+/* TEAM */
+	Developer: {%= author_name %}
+	Contact:   {%= author_email %}
+	URI:       {%= author_url %}
+
+/* SITE */
+	Created:  {%= grunt.template.today("yyyy-mm-dd") %}

@@ -35,6 +35,11 @@ exports.template = function( grunt, init, done ) {
 			default: '0.0.1'
 		},
 		{
+			name   : 'readme',
+			message: 'Create a README file for your project? (y/N)',
+			default: 'yes'
+		},
+		{
 			name: 'css_type',
 			message: 'CSS Preprocessor: Will you use "Sass", "LESS", or "none" for CSS with this project?',
 			default: 'Sass'
@@ -101,6 +106,17 @@ exports.template = function( grunt, init, done ) {
 		// Files to copy and process
 		var files = init.filesToCopy( props );
 
+		switch(props.readme.toLowerCase()[0]) {
+			case 'y':
+			default:
+				props.readme = 'yes';
+				break;
+
+			case 'n':
+				props.readme = 'no';
+				delete files['README.md'];
+		}
+
 		switch(props.use_bourbon.toLowerCase()[0]) {
 			case 'y':
 			default:
@@ -129,11 +145,11 @@ exports.template = function( grunt, init, done ) {
 				delete files['_build/scss/.DS_Store']; // i mean really?
 				delete files['_build/scss'];
 
-				delete files['assets/css/main.css'];
-				delete files['assets/css/.DS_Store'];
-				delete files['assets/css/'];
-				delete files['assets/.DS_Store'];
-				delete files['assets/'];
+				//delete files['assets/css/main.css'];
+				//delete files['assets/css/.DS_Store'];
+				//delete files['assets/css/'];
+				//delete files['assets/.DS_Store'];
+				//delete files['assets/'];
 				//delete files[ 'assets/css/src/' + props.js_safe_name + '.css' ];
 
 				props.devDependencies["grunt-contrib-less"] = "~0.7.0";

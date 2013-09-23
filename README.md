@@ -4,7 +4,7 @@ grunt-neat-pages
 Neatly create a scaffold for your next web project using this grunt-init template. Watch a [quick demo](http://quick.as/7ezi4eq).
 
 Tell Neat-Pages how you like to build your website and it will create a project configured with your chosen includes.  
-You can use Sass, Less or plain-CSS editing and choose from includes like Bootstrap, Foundation 4, HTML5 Boilerplate, Bourbon and Neat.
+You can use Sass, LESS or plain-CSS editing and choose from includes like Bootstrap, Foundation 4, HTML5 Boilerplate, Bourbon and Neat.
 
 > Create a new project with [grunt-init][].
 
