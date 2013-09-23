@@ -424,9 +424,11 @@ module.exports = function(grunt) {
 	{% if ('sass' === css_type) { %}
 	grunt.registerTask('default', ['sass:dist', 'cssmin', 'growl:sass', 'growl:watch', 'watch']);
 	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'sass:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:sass', 'clean:postbuild']);
+	grunt.registerTask('expand', ['sass:dev', 'growl:sass', 'growl:expand']);
 	{% } else if ('less' === css_type) { %}
 	grunt.registerTask('default', ['less:dist', 'cssmin', 'growl:less', 'growl:watch', 'watch']);
 	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'less:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:less' , 'clean:postbuild']);
+	grunt.registerTask('expand', ['less:dev', 'growl:less', 'growl:expand']);
 	{% } else { %}
 	grunt.registerTask('default', ['cssmin', 'growl:watch', 'watch']);
 	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:css', 'clean:postbuild']);
@@ -434,6 +436,6 @@ module.exports = function(grunt) {
 	
 	
 	
-	grunt.registerTask('expand', ['sass:dev', 'growl:sass', 'growl:expand']);
+	
 
 };
