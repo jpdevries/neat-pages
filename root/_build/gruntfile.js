@@ -23,8 +23,10 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		{% if ('none' !== boilerplate) { %}
 		copy: { 
 		},
+		{% } %}
 		cssmin: {
 			compress: {
 				options: {
@@ -86,7 +88,7 @@ module.exports = function(grunt) {
 				src: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.css']
 			}
 		},
-		{% if ('bootstrap' !== boilerplate) { %}
+		{% if ('bootstrap' !== boilerplate && 'bootstrap' !== 'none') { %}
 		concat: {
 			options: {
 				separator: '',
@@ -154,7 +156,7 @@ module.exports = function(grunt) {
 			},
 			{% } else { %}
 			styles: {
-				files: '<%= dirs.css %>**/*.css',
+				files: ['<%= dirs.css %>**/*.css','!<%= dirs.css %>**/*.min.css'],
 				tasks: ['cssmin']
 			},
 			{% } %}
@@ -421,13 +423,13 @@ module.exports = function(grunt) {
 
 	{% if ('sass' === css_type) { %}
 	grunt.registerTask('default', ['sass:dist', 'cssmin', 'growl:sass', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'sass:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:sass', 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'sass:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:sass', 'clean:postbuild']);
 	{% } else if ('less' === css_type) { %}
 	grunt.registerTask('default', ['less:dist', 'cssmin', 'growl:less', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'less:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:less' , 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'less:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:less' , 'clean:postbuild']);
 	{% } else { %}
 	grunt.registerTask('default', ['cssmin', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:css', 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', {% if ('none' !== boilerplate) { %}'copy',{% } %} 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:css', 'clean:postbuild']);
 	{% } %}
 	
 	

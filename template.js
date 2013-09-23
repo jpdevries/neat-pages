@@ -168,8 +168,11 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		switch( props.boilerplate.toLowerCase()[0] ) {
-			case 'h':
+			case 'n':
 			default:
+				props.boilerplate = 'none';
+				break;
+			case 'h':
 				props.boilerplate = 'html5-boilerplate';
 				break;
 			case 'f':
@@ -192,13 +195,13 @@ exports.template = function( grunt, init, done ) {
 
 
 		var _bower = {
-			name: "neatprints",
-			version:"0.0.1",
+			name: "neat-pages",
+			version:props.version,
 			author: {
-				name: "JP DeVries",
-				url: "http://devries.jp"
+				name: "",
+				url: ""
 			},
-			homepage: "https://github.com/jpdevries/neatprints/",
+			homepage: "",
 			repository: {
 				type: "git",
 				url: ""
