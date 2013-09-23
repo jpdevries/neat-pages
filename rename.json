@@ -1,3 +1,6 @@
 {
-"assets/css/main.css":"{%= assets_path %}css/main.css"
+"assets/css/main.css":"{%= assets_path %}css/main.css",
+"assets/img/README.md":"{%= assets_path %}img/README.md",
+"assets/img/src/README.md":"{%= assets_path %}img/src/README.md",
+"assets/js/main.js":"{%= assets_path %}js/main.js"
 }
