@@ -214,8 +214,8 @@ exports.template = function( grunt, init, done ) {
 		};
 
 		if ('sass' === props.css_type) {
-			_bower.dependencies["bourbon"] = "*";
-			_bower.dependencies["neat"] = "*";
+			_bower.dependencies["bourbon"] = "~3.1.8";
+			_bower.dependencies["neat"] = "~1.4.0";
 			_bower.exportsOverride["bourbon"] = {
 				"": "app/assets/stylesheets/"
 			};
@@ -234,7 +234,7 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('font-awesome' === props.icon_set) {
-			_bower.dependencies["font-awesome"] = "*";
+			_bower.dependencies["font-awesome"] = "~3.2.1";
 			_bower.exportsOverride["font-awesome"] = {
 				"scss": [
 					"scss"
@@ -252,7 +252,7 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('bootstrap' === props.boilerplate) {
-			_bower.dependencies["bootstrap"] = "*";
+			_bower.dependencies["bootstrap"] = "~3.0.0";
 			_bower.exportsOverride["bootstrap"] = {
 				"dist" : ["dist"],
 				"less" : ["less"],
@@ -262,7 +262,7 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('foundation' === props.boilerplate) {
-			_bower.dependencies["foundation"] = "*";
+			_bower.dependencies["foundation"] = "~4.3.1";
 			_bower.exportsOverride["foundation"] = {
 		 		"js":["js"],
 		 		"scss":["scss"]
