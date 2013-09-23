@@ -86,13 +86,43 @@ module.exports = function(grunt) {
 				src: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.css']
 			}
 		},
+		{% if ('bootstrap' !== boilerplate) { %}
 		concat: {
 			options: {
 				separator: '',
-			}{% if ('html5-boilerplate' === boilerplate) { %},
-			dist: {
-				src: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>plugins.js','<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main.js'],
+			}
+			{% if ('html5-boilerplate' === boilerplate) { %}
+			,
+			h5bp: {
+				src: [
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>plugins.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main.js'
+				],
 				dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main-dev.js', 
+			}
+			{% } else if ('foundation' === boilerplate) { %}
+			,
+			foundation: {
+				src: [ /* comment stuff out you don't need */
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.alerts.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.clearing.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.cookie.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.dropdown.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.forms.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.joyride.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.magellan.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.orbit.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.reveal.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.section.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.tooltips.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.topbar.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.interchange.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.placeholder.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>foundation/foundation.abide.js',
+					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main.js'
+				],
+				dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main-dev.js',
 			}
 			{% } %}
 		},
@@ -100,13 +130,14 @@ module.exports = function(grunt) {
 			main: {
 				options: {
 					report: 'min'
-				}{% if ('html5-boilerplate' === boilerplate) { %},
+				},
 				files: {
 					'<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main-min.js': ['<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>main-dev.js']
 				}
-				{% } %}
+				
 			}
 		},
+		{% } %}
 		watch: { /* trigger tasks on save */
 			options: {
 				livereload: true 
@@ -383,18 +414,20 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-growl');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
+	{% if ('bootstrap' !== boilerplate) { %}
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	{% } %}
 
 	{% if ('sass' === css_type) { %}
 	grunt.registerTask('default', ['sass:dist', 'cssmin', 'growl:sass', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'sass:dev', 'cssmin', 'concat', 'uglify', 'growl:sass', 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'sass:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:sass', 'clean:postbuild']);
 	{% } else if ('less' === css_type) { %}
 	grunt.registerTask('default', ['less:dist', 'cssmin', 'growl:less', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'less:dev', 'cssmin', 'concat', 'uglify', 'growl:less' , 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'less:dev', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:less' , 'clean:postbuild']);
 	{% } else { %}
 	grunt.registerTask('default', ['cssmin', 'growl:watch', 'watch']);
-	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'cssmin', 'concat', 'uglify', 'growl:css', 'clean:postbuild']);
+	grunt.registerTask('build', ['clean:prebuild', 'bower', 'copy', 'cssmin', {% if ('bootstrap' !== boilerplate) { %}'concat', 'uglify',{% } %} 'growl:css', 'clean:postbuild']);
 	{% } %}
 	
 	
