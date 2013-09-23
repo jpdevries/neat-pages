@@ -16,7 +16,7 @@ exports.notes = '';
 exports.after = '';
 
 // Any existing file or directory matching this wildcard will cause a warning.
-exports.warnOn = '';
+//exports.warnOn = '';
 
 // The actual init template
 exports.template = function( grunt, init, done ) {
@@ -128,6 +128,12 @@ exports.template = function( grunt, init, done ) {
 				delete files['_build/scss/main.scss'];
 				delete files['_build/scss/.DS_Store']; // i mean really?
 				delete files['_build/scss'];
+
+				delete files['assets/css/main.css'];
+				delete files['assets/css/.DS_Store'];
+				delete files['assets/css/'];
+				delete files['assets/.DS_Store'];
+				delete files['assets/'];
 				//delete files[ 'assets/css/src/' + props.js_safe_name + '.css' ];
 
 				props.devDependencies["grunt-contrib-less"] = "~0.7.0";
@@ -150,6 +156,12 @@ exports.template = function( grunt, init, done ) {
 				delete files[ '_build/less/main.less'];
 				delete files['_build/less/.DS_Store'];
 				delete files['_build/less'];
+
+				//delete files['assets/css/main.css'];
+				//delete files['assets/css/.DS_Store'];
+				//delete files['assets/css/'];
+				//delete files['assets/.DS_Store'];
+				delete files['assets/'];
 
 				props.devDependencies["grunt-contrib-sass"] = "~0.5.0";
 				props.css_type = 'sass';

@@ -28,8 +28,8 @@ module.exports = function(grunt) {
 			compress: {
 				options: {
 					report: 'min',
-					keepSpecialComments: 0,
-					banner: '/*!\n*  <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n*/'
+					keepSpecialComments: 0{% if ('none' !== css_type) { %},
+					banner: '/*!\n*  <%= pkg.title %> - v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n*/'{% } %}
 				},
 				files: {
 					'<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.min.css': '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>main.css'
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
 			},
 			{% } else { %}
 			styles: {
-				files: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.css','!<%= dirs.css %>**/*.min.css'],
+				files: ['<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.css','!<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>**/*.min.css'],
 				tasks: ['cssmin','growl:css']
 			},
 			{% } %}
