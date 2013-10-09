@@ -2,7 +2,7 @@
 
 > {%= description %}
 
-This project was created using the [grunt-neat-pages](https://github.com/jpdevries/grunt-neat-pages/) boilerplate.
+This project was created using the [neat-pages](https://github.com/jpdevries/neat-pages/) boilerplate.
 {% if ('none' !== css_type){ %}{% if ('sass' === css_type) { %}[Sass](http://sass-lang.com/) {% } else if ('less' === css_type) { %}[LESS](http://lesscss.org/) {% } %}is used to pre-process CSS.{% } %}
 {% if ('yes' === bourbon_neat || 'use_bourbon' === bourbon_neat || 'none' !== icon_set || 'none' !== boilerplate){ %}
 ### Includes:
