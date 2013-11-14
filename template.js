@@ -265,13 +265,13 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('font-awesome' === props.icon_set) {
-			_bower.dependencies["font-awesome"] = "~3.2.1";
+			_bower.dependencies["font-awesome"] = "~4.0.3";
 			_bower.exportsOverride["font-awesome"] = {
 				"scss": [
 					"scss"
 				],
-				"font": [
-					"font"
+				"fonts": [
+					"fonts"
 				],
 				"less": [
 					"less"
