@@ -1,6 +1,6 @@
 /**
- * grunt-modx-theme
- * https://github.com/jpdevries/grunt-modx-theme
+ * grunt-neat-pages
+ * https://github.com/jpdevries/NeatPages
  *
  */
 
