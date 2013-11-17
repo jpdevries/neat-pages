@@ -328,6 +328,14 @@ module.exports = function(grunt) {
 		},{
 			src: '<%= dirs.lib %>html5-boilerplate/css/normalize.css',
 			dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>normalize.css'
+		},{
+			src: '<%= dirs.lib %>html5-boilerplate/js/plugins.js',
+			dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>plugins.js'
+		},{
+			cwd: '<%= dirs.lib %>html5-boilerplate/js/vendor/',
+			src: '**/*.js',
+			dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.js %>vendor',
+			expand: true
 		}]
 	};
 	{% } %}
