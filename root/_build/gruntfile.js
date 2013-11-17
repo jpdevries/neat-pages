@@ -253,7 +253,7 @@ module.exports = function(grunt) {
 			},
 			{% } %}
 			{
-				src: 'font/**/*',
+				src: 'fonts/**/*',
 				cwd: '<%= dirs.lib %>font-awesome/',
 				dest: '<%= dirs.theme %><%= dirs.assets %>',
 				expand: true
