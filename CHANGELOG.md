@@ -1,3 +1,15 @@
+## 0.3.3
+Adding helper messages to terminal
+
+## 0.3.2
+Bug fixes
+
+## 0.3.1
+Adding ionicons option
+
+## 0.3.0
+Updating to Font Awesome 4
+
 ## 0.2.0
 
 Features:

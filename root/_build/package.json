@@ -1,7 +1,7 @@
 {
   "name": "neat-pages",
   "title": "NeatPages",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "devDependencies": {
     "grunt-bower-task": "~0.3.2",
     "grunt-contrib-copy": "~0.4.1",
