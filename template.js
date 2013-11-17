@@ -61,7 +61,7 @@ exports.template = function( grunt, init, done ) {
 		},
 		{
 			name: 'icon_set',
-			message: 'Icon Set: Will you use "Font-Awesome", "ionicons" or "none" with this project?',
+			message: 'Icon Set: Will you use "Font Awesome", "ionicons" or "none" with this project?',
 			default: 'font-awesome'
 		},
 		{
@@ -290,6 +290,9 @@ exports.template = function( grunt, init, done ) {
 				],
 				"css": [
 					"css"
+				],
+				"scss": [
+					"scss"
 				]
 			};
 		}

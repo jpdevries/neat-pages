@@ -262,18 +262,15 @@ module.exports = function(grunt) {
 	{% } else if ('ionicons' === icon_set) { %}
 	initConfig.copy["ionicons"] = {
 		files:[
+			{% if ('sass' === css_type) { %}
 			{
-				{% if ('sass' === css_type) { %}
 				src: '<%= dirs.lib %>ionicons/scss/**/*.scss',
-				{% } %}
-				
-
-				{% if ('sass' === css_type) { %}
 				dest: '<%= dirs.scss %>ionicons/',
-				{% } %}
 				expand: true,
 				flatten: true
-			},{
+			},
+			{% } %}
+			{
 				src: '<%= dirs.lib %>ionicons/css/**/*.css',
 				dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>',
 				expand: true,
