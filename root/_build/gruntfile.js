@@ -231,30 +231,57 @@ module.exports = function(grunt) {
 	{% if ('font-awesome' === icon_set) { %}
 	initConfig.copy["font-awesome"] = {
 		files: [
-			{% if ('none' !== css_type) { %}
 			{
 				{% if ('sass' === css_type) { %}
 				src: '<%= dirs.lib %>font-awesome/scss/**/*.scss',
 				{% } else if ('less' === css_type) { %}
 				src: '<%= dirs.lib %>font-awesome/less/**/*.less',
-				{% } else { %}
-				src: '<%= dirs.lib %>font-awesome/css/**/*.css',
 				{% } %}
 
 				{% if ('sass' === css_type) { %}
 				dest: '<%= dirs.scss %>font-awesome/',
 				{% } else if ('less' === css_type) { %}
 				dest: '<%= dirs.less %>font-awesome/',
-				{% } else { %}
-				dest: '<%= dirs.css %>font-awesome/',
 				{% } %}
 				expand: true,
 				flatten: true
+			},{
+				src: '<%= dirs.lib %>font-awesome/css/**/*.css',
+				dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>',
+				expand: true,
+				flatten: true
 			},
-			{% } %}
 			{
 				src: 'fonts/**/*',
 				cwd: '<%= dirs.lib %>font-awesome/',
+				dest: '<%= dirs.theme %><%= dirs.assets %>',
+				expand: true
+			}
+		]
+	};
+	{% } else if ('ionicons' === icon_set) { %}
+	initConfig.copy["ionicons"] = {
+		files:[
+			{
+				{% if ('sass' === css_type) { %}
+				src: '<%= dirs.lib %>ionicons/scss/**/*.scss',
+				{% } %}
+				
+
+				{% if ('sass' === css_type) { %}
+				dest: '<%= dirs.scss %>ionicons/',
+				{% } %}
+				expand: true,
+				flatten: true
+			},{
+				src: '<%= dirs.lib %>ionicons/css/**/*.css',
+				dest: '<%= dirs.theme %><%= dirs.assets %><%= dirs.css %>',
+				expand: true,
+				flatten: true
+			},
+			{
+				src: 'fonts/**/*',
+				cwd: '<%= dirs.lib %>ionicons/',
 				dest: '<%= dirs.theme %><%= dirs.assets %>',
 				expand: true
 			}

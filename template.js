@@ -61,7 +61,7 @@ exports.template = function( grunt, init, done ) {
 		},
 		{
 			name: 'icon_set',
-			message: 'Icon Set: Will you use "Font-Awesome" or "none" with this project?',
+			message: 'Icon Set: Will you use "Font-Awesome", "ionicons" or "none" with this project?',
 			default: 'font-awesome'
 		},
 		{
@@ -183,11 +183,14 @@ exports.template = function( grunt, init, done ) {
 				props.css_type = 'sass';
 				break;
 		}
-
+		
 		switch( props.icon_set.toLowerCase()[0] ) {
 			case 'f':
 			default:
 				props.icon_set = 'font-awesome';
+				break;
+			case 'i':
+				props.icon_set = 'ionicons';
 				break;
 			case 'n':
 			case undefined:
@@ -263,7 +266,6 @@ exports.template = function( grunt, init, done ) {
 				"" : ["./.htaccess","./favicon.ico","./humans.txt","./index.html","./robots.txt","./apple-touch-icon-precomposed.png"]
 			};
 		}
-
 		if ('font-awesome' === props.icon_set) {
 			_bower.dependencies["font-awesome"] = "~4.0.3";
 			_bower.exportsOverride["font-awesome"] = {
@@ -275,6 +277,16 @@ exports.template = function( grunt, init, done ) {
 				],
 				"less": [
 					"less"
+				],
+				"css": [
+					"css"
+				]
+			};
+		} else if('ionicons' === props.icon_set) {
+			_bower.dependencies["ionicons"] = "~1.3.5";
+			_bower.exportsOverride["ionicons"] = {
+				"fonts": [
+					"fonts"
 				],
 				"css": [
 					"css"
