@@ -102,6 +102,8 @@ exports.template = function( grunt, init, done ) {
 		// An additional value that won't conflict with NodeUnit unit tests.
 		props.js_test_safe_name = props.js_safe_name === 'test' ? 'myTest' : props.js_safe_name;
 		props.js_safe_name_caps = props.js_safe_name.toUpperCase();
+		
+		props.message = 'Your ' + props.name + ' project is going to be so awesome.\n';
 
 		// Files to copy and process
 		var files = init.filesToCopy( props );
@@ -110,6 +112,7 @@ exports.template = function( grunt, init, done ) {
 			case 'y':
 			default:
 				props.readme = 'yes';
+				props.message += 'A README file has automatically been created. ';
 				break;
 
 			case 'n':
@@ -121,6 +124,7 @@ exports.template = function( grunt, init, done ) {
 			case 'y':
 			default:
 				props.use_bourbon = 'yes';
+				props.message += "You've chosen to use the silent Bourbon Sass Framework.\n *** Please drink responsibly. *** \n";
 				break;
 
 			case 'n':
@@ -131,6 +135,7 @@ exports.template = function( grunt, init, done ) {
 			case 'y':
 			default:
 				props.bourbon_neat = 'yes';
+				props.message += "You drink your Bourbon Neat. ";
 				break;
 
 			case 'n':
@@ -154,6 +159,7 @@ exports.template = function( grunt, init, done ) {
 
 				props.devDependencies["grunt-contrib-less"] = "~0.7.0";
 				props.css_type = 'less';
+				props.message += "You will be using the LESS CSS preprocessor. ";
 				break;
 			case 'n':
 			case undefined:
@@ -165,6 +171,7 @@ exports.template = function( grunt, init, done ) {
 				delete files['_build/scss/.DS_Store'];
 				delete files['_build/scss'];
 				props.css_type = 'none';
+				props.message += "You will be writing raw CSS. Grunt will minify your CSS for you. ";
 				break;
 			// SASS is the default
 			default:
@@ -181,6 +188,7 @@ exports.template = function( grunt, init, done ) {
 
 				props.devDependencies["grunt-contrib-sass"] = "~0.5.0";
 				props.css_type = 'sass';
+				props.message += "Look at that, you've got a great Sass skillset. ";
 				break;
 		}
 		
@@ -188,9 +196,11 @@ exports.template = function( grunt, init, done ) {
 			case 'f':
 			default:
 				props.icon_set = 'font-awesome';
+				props.message += "Font Awesome 4 is embeded in your project, so that's cool. ";
 				break;
 			case 'i':
 				props.icon_set = 'ionicons';
+				props.message += "The ionicons icon set is embeded in your project. ";
 				break;
 			case 'n':
 			case undefined:
@@ -205,18 +215,20 @@ exports.template = function( grunt, init, done ) {
 				break;
 			case 'h':
 				props.boilerplate = 'html5-boilerplate';
+				props.message += 'You are getting things started with HTML5 Boilerplate. ';
 				break;
 			case 'f':
 				props.boilerplate = 'foundation';
+				props.message += 'You are leveraging the Foundation 4 Front end Framework. ';
 				break;
 			case 'b':
 				props.boilerplate = 'bootstrap';
+				props.message += "Tigthen up all 4 of those bootstraps, you're in this for the long haul. ";
 				break;
 		}
 
-
-
-		console.log( files );
+		
+		
 
 		// Actually copy and process files
 		init.copyAndProcess( files, props );
@@ -318,6 +330,11 @@ exports.template = function( grunt, init, done ) {
 		init.writePackageJSON( '_build/bower.json', _bower, function(a,b){
 			return b;
 		} );
+		
+		console.log("\nThat was quick. Looks like you've got some neat pages.\n");
+		console.log(props.message);
+		console.log("\nWOOHOO! Your Grunt project has been created.");
+		console.log("\nIt's time we build:\n$ cd _build\n$ npm install\n$ grunt build");
 
 		// Done!
 		done();
