@@ -18,12 +18,15 @@ exports.after = '';
 // Any existing file or directory matching this wildcard will cause a warning.
 //exports.warnOn = '';
 
+
+
 // The actual init template
 exports.template = function( grunt, init, done ) {
 	init.process( {}, [
+		var inquirer = require("inquirer");
 		// Prompt for these values.
-		init.prompt( 'title', 'New Site' ),
-		init.prompt( 'description', 'The best website ever made!' ),
+		inquirer.prompt( 'title', 'New Site' ),
+		inquirer.prompt( 'description', 'The best website ever made!' ),
 		{
 			name   : 'prefix',
 			message: 'Theme alias (alpha and underscore characters only)',
@@ -69,12 +72,12 @@ exports.template = function( grunt, init, done ) {
 			message: 'Boilerplate: Will you use "HTML5 Boilerplate", "Bootstrap", "Foundation 4" or "none" with this project?',
 			default: 'html5-boilerplate'
 		},
-		init.prompt( 'homepage'),
-		init.prompt( 'author_name' ),
-		init.prompt( 'author_email' ),
-		init.prompt( 'author_url' ),
-		init.prompt( 'repository' ),
-		init.prompt( 'bugs' ),
+		inquirer.prompt( 'homepage'),
+		inquirer.prompt( 'author_name' ),
+		inquirer.prompt( 'author_email' ),
+		inquirer.prompt( 'author_url' ),
+		inquirer.prompt( 'repository' ),
+		inquirer.prompt( 'bugs' ),
 	], function( err, props ) {
 		props.keywords = [];
 		props.version = (Number(props.version_no)) ? props.version_no : '0.0.1';
@@ -320,7 +323,7 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('foundation' === props.boilerplate) {
-			_bower.dependencies["foundation"] = "~4.3.1";
+			_bower.dependencies["foundation"] = "~5.0.0";
 			_bower.exportsOverride["foundation"] = {
 		 		"js":["js"],
 		 		"scss":["scss"]
