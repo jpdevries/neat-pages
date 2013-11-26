@@ -320,7 +320,7 @@ exports.template = function( grunt, init, done ) {
 		}
 
 		if ('foundation' === props.boilerplate) {
-			_bower.dependencies["foundation"] = "~4.3.1";
+			_bower.dependencies["foundation"] = "~5.0.2";
 			_bower.exportsOverride["foundation"] = {
 		 		"js":["js"],
 		 		"scss":["scss"]

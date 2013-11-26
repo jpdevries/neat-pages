@@ -1,3 +1,6 @@
+## 0.3.4
+Updating Foundation to 5.0.2
+
 ## 0.3.3
 Adding helper messages to terminal
 
