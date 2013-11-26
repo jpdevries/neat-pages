@@ -1,3 +1,6 @@
+## 0.3.5
+Bug fixes
+
 ## 0.3.4
 Updating Foundation to 5.0.2
 
