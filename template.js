@@ -66,7 +66,7 @@ exports.template = function( grunt, init, done ) {
 		},
 		{
 			name: 'boilerplate',
-			message: 'Boilerplate: Will you use "HTML5 Boilerplate", "Bootstrap", "Foundation 4" or "none" with this project?',
+			message: 'Boilerplate: Will you use "HTML5 Boilerplate", "Bootstrap", "Foundation 5" or "none" with this project?',
 			default: 'html5-boilerplate'
 		},
 		init.prompt( 'homepage'),
