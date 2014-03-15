@@ -1,3 +1,6 @@
+## 0.3.6
+Updated node dependencies 
+
 ## 0.3.5
 Bug fixes
 

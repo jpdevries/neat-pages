@@ -81,14 +81,14 @@ exports.template = function( grunt, init, done ) {
 
 		props.devDependencies = {
     		"grunt-bower-task": "~0.3.2",
-    		"grunt-contrib-copy": "~0.4.1",
-    		"grunt-contrib-watch": "~0.5.3",
+    		"grunt-contrib-copy": "^0.4.1",
+    		"grunt-contrib-watch": "^0.5.3",
     		"grunt-contrib-clean": "~0.5.0",
     		"grunt-growl": "~0.1.5",
-    		"grunt-contrib-cssmin": "~0.6.2",
-    		"grunt-contrib-csslint": "~0.1.2",
+    		"grunt-contrib-cssmin": "^0.6.2",
+    		"grunt-contrib-csslint": "^0.1.2",
     		"grunt-contrib-concat": "~0.3.0",
-    		"grunt-contrib-uglify": "~0.2.4"
+    		"grunt-contrib-uglify": "^0.2.7"
 		};
 
 		// Sanitize names where we need to for PHP/JS
@@ -157,7 +157,7 @@ exports.template = function( grunt, init, done ) {
 				//delete files['assets/'];
 				//delete files[ 'assets/css/src/' + props.js_safe_name + '.css' ];
 
-				props.devDependencies["grunt-contrib-less"] = "~0.7.0";
+				props.devDependencies["grunt-contrib-less"] = "^0.10.0";
 				props.css_type = 'less';
 				props.message += "You will be using the LESS CSS preprocessor. ";
 				break;
@@ -186,7 +186,7 @@ exports.template = function( grunt, init, done ) {
 				//delete files['assets/.DS_Store'];
 				delete files['assets/'];
 
-				props.devDependencies["grunt-contrib-sass"] = "~0.5.0";
+				props.devDependencies["grunt-contrib-sass"] = "^0.5.1";
 				props.css_type = 'sass';
 				props.message += "Look at that, you've got a great Sass skillset. ";
 				break;
